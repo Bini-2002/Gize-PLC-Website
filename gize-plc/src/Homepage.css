@@ -1,0 +1,79 @@
+@layer components {
+  /* Custom animations */
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-floaty {
+    animation: floaty 8s ease-in-out infinite;
+  }
+  
+  /* Slide from top animation */
+  @keyframes slideFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slideFromTop {
+    animation: slideFromTop 0.6s ease-out forwards;
+  }
+  
+  /* Partner scrolling animation */
+  @keyframes partnerScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-partnerScroll {
+    animation: partnerScroll 20s linear infinite;
+  }
+  
+  /* Hero image ken burns effect */
+  @keyframes heroKenburns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .animate-heroKenburns {
+    animation: heroKenburns 5s ease-in-out forwards;
+  }
+  
+  /* Hero text animation */
+  @keyframes heroIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-heroIn {
+    animation: heroIn 0.2s ease-out forwards;
+  }
+}
+
+/* Custom brown color */
+.text-brown-500 {
+  color: #92400e;
+}
+.text-brown-600 {
+  color: #78350f;
+}
