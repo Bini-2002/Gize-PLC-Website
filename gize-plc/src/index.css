@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Keep `dark:` utilities inert unless `.dark` is explicitly present.
+  Dark mode feature was removed, so we do not set `.dark` anywhere. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   color-scheme: light;
 }

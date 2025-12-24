@@ -76,15 +76,15 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-600">
+    <div className="min-h-screen bg-white dark:bg-[var(--gize-dark-red-2)] font-sans text-slate-600 dark:text-slate-100">
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <header className="sticky top-0 z-50 bg-white/95 dark:bg-[var(--gize-dark-red-1)] shadow-sm backdrop-blur">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
           <div className="flex items-center">
             <img src={logo} alt="Gize PLC" className="h-12 w-auto" />
           </div>
 
-          <nav className="hidden items-center gap-8 text-xs font-bold tracking-widest text-slate-800 uppercase md:flex">
+          <nav className="hidden items-center gap-8 text-xs font-bold tracking-widest text-slate-800 dark:text-white uppercase md:flex">
             <a href="#" className="transition-colors hover:text-red-600">
               Home
             </a>
@@ -101,7 +101,7 @@ export default function FAQ() {
 
           <a
             href="#contact"
-            className="hidden rounded bg-red-500 px-6 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 md:inline-block"
+            className="hidden rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-6 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:inline-block"
           >
             contact us
           </a>
@@ -126,7 +126,7 @@ export default function FAQ() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="pt-6 md:pt-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">
                 Frequently asked
               </h2>
               <div className="mt-1 text-3xl font-extrabold uppercase tracking-wide text-red-600 md:text-4xl">
@@ -149,15 +149,15 @@ export default function FAQ() {
 
           {/* CTA */}
           <div className="mt-20 text-center">
-            <h3 className="text-lg font-extrabold text-slate-900 md:text-xl">Do you have more questions?</h3>
-            <div className="mx-auto mt-6 max-w-xl text-[11px] leading-relaxed text-slate-500">
+            <h3 className="text-lg font-extrabold text-slate-900 dark:text-white md:text-xl">Do you have more questions?</h3>
+            <div className="mx-auto mt-6 max-w-xl text-[11px] leading-relaxed text-slate-500 dark:text-slate-100/80">
               Origin-to-destination freight movement and complete compliance management in a single,
               integrated platform. Meet the right team to help realize secure, timely deliveries
             </div>
 
             <a
               href="#contact"
-              className="mt-8 inline-flex rounded-full bg-red-600 px-10 py-2 text-[11px] font-extrabold uppercase tracking-wide text-white shadow-sm transition hover:bg-red-700"
+              className="mt-8 inline-flex rounded-full bg-red-600 dark:bg-[var(--gize-dark-red-1)] px-10 py-2 text-[11px] font-extrabold uppercase tracking-wide text-white shadow-sm transition hover:bg-red-700 dark:hover:bg-[var(--gize-dark-red-2)]"
             >
               contact us
             </a>
@@ -166,11 +166,11 @@ export default function FAQ() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#EFEFEF] pb-8 pt-16 text-sm text-slate-700">
+      <footer className="bg-[#C0C0C0] pb-8 pt-16 text-sm text-slate-900">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-4">
           <div>
             <img src={logo} alt="Gize PLC" className="mb-6 h-10 w-auto" />
-            <p className="text-xs leading-relaxed text-slate-500">
+            <p className="text-sm leading-relaxed text-slate-700">
               Gize Logistics and Transport is a Freight forwarding company managed by a team of
               professionals who are dedicated to responding promptly to customer demands. We offer
               comprehensive services customized to suit your needs.
@@ -188,8 +188,10 @@ export default function FAQ() {
                 "Transportation",
                 "Customs clearance",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="font-bold text-red-600">‹</span> {item}
+                <li key={item}>
+                  <a href="#services" className="flex items-center gap-2 hover:text-red-600">
+                    <span className="font-bold text-red-600">‹</span> {item}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -198,9 +200,18 @@ export default function FAQ() {
           <div>
             <h4 className="mb-6 font-bold text-slate-900">Quick Links</h4>
             <ul className="space-y-3 text-xs">
-              {["Home", "Our Services", "About us", "CEO", "Contact us", "FAQ"].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="font-bold text-red-600">‹</span> {item}
+              {[
+                { label: "Home", href: "#" },
+                { label: "Our Services", href: "#services" },
+                { label: "About us", href: "#about" },
+                { label: "Contact us", href: "#contact" },
+                { label: "FAQ", href: "#faq" },
+              ].map((link) => (
+                <li key={link.label} className="flex items-center gap-2">
+                  <span className="font-bold text-red-600">‹</span>
+                  <a href={link.href} className="hover:text-red-600 hover:underline">
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -233,7 +244,7 @@ export default function FAQ() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-slate-300 bg-slate-500 py-4 text-center text-xs text-white">
+        <div className="mt-16 border-t border-slate-300 bg-[#C0C0C0] py-4 text-center text-xs text-slate-700">
           All Rights Reserved by Gize PLC
         </div>
       </footer>

@@ -13,7 +13,7 @@
   @keyframes slideFromTop {
     0% {
       opacity: 0;
-      transform: translateY(-80px);
+      transform: translateY(-50px);
     }
     100% {
       opacity: 1;
@@ -76,4 +76,88 @@
 }
 .text-brown-600 {
   color: #78350f;
+}
+@layer components {
+  /* Existing animations remain... */
+  
+  /* Pop effect animation */
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px) scale(0.8);
+    }
+    70% {
+      opacity: 1;
+      transform: translateY(10px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-popIn {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  /* Bounce once animation for click/touch */
+  @keyframes bounceOnce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.95);
+    }
+    60% {
+      transform: scale(1.05);
+    }
+    90% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-bounce-once {
+    animation: bounceOnce 0.3s ease-in-out;
+  }
+  
+  /* Red pulse shadow animation */
+  @keyframes redPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+  }
+  
+  .animate-redPulse {
+    animation: redPulse 0.6s cubic-bezier(0.4, 0, 0.6, 1);
+  }
+  
+  /* Enhanced slide from top with pop */
+  @keyframes slideFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-60px) scale(0.9);
+      box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(10px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.3);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .animate-slideFromTop {
+    animation: slideFromTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0; /* Start hidden */
+  }
 }
