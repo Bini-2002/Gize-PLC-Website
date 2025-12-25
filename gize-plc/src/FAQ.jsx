@@ -79,12 +79,12 @@ export default function FAQ() {
     <div className="min-h-screen bg-white dark:bg-[var(--gize-dark-red-2)] font-sans text-slate-600 dark:text-slate-100">
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-[var(--gize-dark-red-1)] shadow-sm backdrop-blur">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
-          <div className="flex items-center">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-0">
+          <div className="flex items-center justify-between">
             <img src={logo} alt="Gize PLC" className="h-12 w-auto" />
           </div>
 
-          <nav className="hidden items-center gap-8 text-xs font-bold tracking-widest text-slate-800 dark:text-white uppercase md:flex">
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-bold tracking-widest text-slate-800 dark:text-white uppercase md:justify-end md:gap-8 md:text-xs">
             <a href="#" className="transition-colors hover:text-red-600">
               Home
             </a>
@@ -101,7 +101,7 @@ export default function FAQ() {
 
           <a
             href="#contact"
-            className="hidden rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-6 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:inline-block"
+            className="inline-flex justify-center rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-5 py-2 text-[10px] font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:px-6 md:text-xs"
           >
             contact us
           </a>
@@ -109,7 +109,7 @@ export default function FAQ() {
       </header>
 
       {/* HERO */}
-      <section className="relative h-[300px] w-full overflow-hidden bg-slate-900 md:h-[340px]">
+      <section className="relative h-[260px] w-full overflow-hidden bg-slate-900 sm:h-[300px] md:h-[340px]">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/30 to-slate-900/10" />
 
@@ -126,10 +126,10 @@ export default function FAQ() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="pt-6 md:pt-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">
+              <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
                 Frequently asked
               </h2>
-              <div className="mt-1 text-3xl font-extrabold uppercase tracking-wide text-red-600 md:text-4xl">
+              <div className="mt-1 text-2xl font-extrabold uppercase tracking-wide text-red-600 sm:text-3xl md:text-4xl">
                 QUESTIONS
               </div>
             </div>

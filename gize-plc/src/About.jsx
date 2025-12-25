@@ -40,12 +40,12 @@ export default function About() {
     <div className="min-h-screen bg-white dark:bg-[var(--gize-dark-red-2)] font-sans text-slate-600 dark:text-slate-100">
       {/* NAVBAR (same style as Homepage) */}
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-[var(--gize-dark-red-1)] shadow-sm backdrop-blur">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
-          <div className="flex items-center">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-0">
+          <div className="flex items-center justify-between">
             <img src={logo} alt="Gize PLC" className="h-12 w-auto" />
           </div>
 
-          <nav className="hidden items-center gap-8 text-xs font-bold tracking-widest text-slate-800 dark:text-white uppercase md:flex">
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-bold tracking-widest text-slate-800 dark:text-white uppercase md:justify-end md:gap-8 md:text-xs">
             <a href="#" className="transition-colors hover:text-red-600">
               Home
             </a>
@@ -62,7 +62,7 @@ export default function About() {
 
           <a
             href="#contact"
-            className="hidden rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-6 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:inline-block"
+            className="inline-flex justify-center rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-5 py-2 text-[10px] font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:px-6 md:text-xs"
           >
             contact us
           </a>
@@ -70,7 +70,7 @@ export default function About() {
       </header>
 
       {/* HERO */}
-      <section className="relative h-[300px] w-full overflow-hidden bg-slate-900 md:h-[340px]">
+      <section className="relative h-[260px] w-full overflow-hidden bg-slate-900 sm:h-[300px] md:h-[340px]">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/30 to-slate-900/10" />
 
@@ -114,7 +114,7 @@ export default function About() {
                 <img
                   src={aboutCardImg}
                   alt="Logistics"
-                  className="h-[220px] w-full object-cover md:h-[260px] md:w-[420px]"
+                  className="h-[220px] w-full object-cover md:h-[260px] md:max-w-[420px]"
                 />
               </div>
             </div>
@@ -197,11 +197,11 @@ export default function About() {
           </div>
 
           <div className="md:justify-self-end">
-            <div className="relative mx-auto h-[320px] w-[280px] md:h-[360px] md:w-[340px]">
+            <div className="relative mx-auto h-[300px] w-[240px] sm:h-[320px] sm:w-[280px] md:h-[360px] md:w-[340px]">
               <img
                 src={ceoCutout}
                 alt="CEO"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[320px] w-auto object-contain md:h-[360px]"
+                className="absolute inset-x-0 bottom-0 mx-auto h-[300px] w-auto object-contain sm:h-[320px] md:h-[360px]"
               />
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function About() {
                   <img src={member.img} alt={member.name} className="h-full w-full object-cover" />
                 </div>
 
-                <div className="mx-auto mt-4 w-[230px] rounded-2xl bg-white dark:bg-white/10 border border-slate-100 dark:border-white/15 px-6 py-4 shadow-sm dark:shadow-none">
+                <div className="mx-auto mt-4 w-full max-w-[230px] rounded-2xl bg-white dark:bg-white/10 border border-slate-100 dark:border-white/15 px-6 py-4 shadow-sm dark:shadow-none">
                   <div className="text-xs font-bold text-slate-900 dark:text-white">{member.name}</div>
                   <div className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-100/70">
                     {member.role}

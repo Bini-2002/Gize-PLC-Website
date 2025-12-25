@@ -265,12 +265,12 @@ export default function Homepage() {
     <div className="min-h-screen bg-white dark:bg-[var(--gize-dark-red-2)] font-sans text-slate-600 dark:text-slate-100">
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-[var(--gize-dark-red-1)] shadow-sm backdrop-blur">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
-          <div className="flex items-center">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-0">
+          <div className="flex items-center justify-between">
             <img src={logo} alt="Gize PLC" className="h-12 w-auto" />
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest text-slate-800 dark:text-white uppercase">
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-bold tracking-widest text-slate-800 dark:text-white uppercase md:justify-end md:gap-8 md:text-xs">
             <a href="#" className="hover:text-red-600 transition-colors">Home</a>
             <a href="#services" className="hover:text-red-600 transition-colors">Services</a>
             <a href="#about" className="hover:text-red-600 transition-colors">About Us</a>
@@ -279,7 +279,7 @@ export default function Homepage() {
 
           <a
             href="#contact"
-            className="hidden md:inline-block rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-6 py-2 text-xs font-bold text-white uppercase tracking-wide shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)]"
+            className="inline-flex justify-center rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wide shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:px-6 md:text-xs"
           >
             contact us
           </a>
@@ -287,7 +287,7 @@ export default function Homepage() {
       </header>
 
       {/* HERO SECTION - FIXED ARROWS AND FASTER TRANSITIONS */}
-      <section className="relative h-[500px] w-full overflow-hidden bg-slate-900">
+      <section className="relative h-[420px] w-full overflow-hidden bg-slate-900 sm:h-[500px]">
         {/* Slideshow Background */}
         <div className="absolute inset-0">
           {heroSlides.map((slide, idx) => {
@@ -376,7 +376,7 @@ export default function Homepage() {
           type="button"
           onClick={goPrevHero}
           aria-label="Previous slide"
-          className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm flex items-center justify-center transition hover:bg-white/20 z-40 pointer-events-auto cursor-pointer"
+          className="absolute left-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm flex items-center justify-center transition hover:bg-white/20 z-40 pointer-events-auto cursor-pointer md:left-4 md:h-10 md:w-10"
         >
           ‹
         </button>
@@ -384,7 +384,7 @@ export default function Homepage() {
           type="button"
           onClick={goNextHero}
           aria-label="Next slide"
-          className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm flex items-center justify-center transition hover:bg-white/20 z-40 pointer-events-auto cursor-pointer"
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm flex items-center justify-center transition hover:bg-white/20 z-40 pointer-events-auto cursor-pointer md:right-4 md:h-10 md:w-10"
         >
           ›
         </button>
@@ -590,7 +590,7 @@ export default function Homepage() {
               type="button"
               onClick={goPrevTestimonial}
               aria-label="Previous testimonial"
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:bg-white"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:bg-white md:flex"
             >
               ‹
             </button>
@@ -598,13 +598,13 @@ export default function Homepage() {
               type="button"
               onClick={goNextTestimonial}
               aria-label="Next testimonial"
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:bg-white"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:bg-white md:flex"
             >
               ›
             </button>
 
             {/* All cards (3 visible) */}
-            <div className="px-12 md:px-16">
+            <div className="px-4 sm:px-10 md:px-16">
               <div className="grid gap-6 md:grid-cols-3">
                 {testimonials.map((t, i) => {
                   const isActive = i === testimonialIndex;
