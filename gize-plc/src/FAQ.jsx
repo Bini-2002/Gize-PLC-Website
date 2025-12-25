@@ -47,6 +47,7 @@ function AccordionRow({ question, answer, isOpen, onClick }) {
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const faqs = [
     {
@@ -79,12 +80,12 @@ export default function FAQ() {
     <div className="min-h-screen bg-white dark:bg-[var(--gize-dark-red-2)] font-sans text-slate-600 dark:text-slate-100">
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-[var(--gize-dark-red-1)] shadow-sm backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-0">
-          <div className="flex items-center justify-between">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-8">
+          <div className="flex items-center">
             <img src={logo} alt="Gize PLC" className="h-12 w-auto" />
           </div>
 
-          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-bold tracking-widest text-slate-800 dark:text-white uppercase md:justify-end md:gap-8 md:text-xs">
+          <nav className="hidden items-center gap-8 text-xs font-bold tracking-widest text-slate-800 dark:text-white uppercase md:flex">
             <a href="#" className="transition-colors hover:text-red-600">
               Home
             </a>
@@ -99,14 +100,72 @@ export default function FAQ() {
             </a>
           </nav>
 
-          <a
-            href="#contact"
-            className="inline-flex justify-center rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-5 py-2 text-[10px] font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:px-6 md:text-xs"
-          >
-            contact us
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="hidden rounded bg-red-500 dark:bg-[var(--gize-dark-red-1)] px-6 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-red-600 dark:hover:bg-[var(--gize-dark-red-2)] md:inline-flex"
+            >
+              contact us
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              className="inline-flex items-center justify-center rounded border border-slate-200 bg-white px-3 py-2 text-xs font-bold uppercase tracking-wide text-slate-800 shadow-sm transition hover:bg-slate-50 md:hidden"
+              aria-label="Open menu"
+            >
+              Menu
+            </button>
+          </div>
         </div>
       </header>
+
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-slate-900/50 px-4 py-6"
+          role="presentation"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setIsMenuOpen(false);
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            className="mx-auto w-full max-w-sm rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-slate-200"
+          >
+            <div className="flex items-center justify-between">
+              <div className="text-xs font-extrabold uppercase tracking-widest text-slate-800">Menu</div>
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                aria-label="Close menu"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="mt-4 grid gap-2 text-sm font-semibold text-slate-700">
+              {[
+                { label: "Home", href: "#" },
+                { label: "Services", href: "#services" },
+                { label: "About Us", href: "#about" },
+                { label: "FAQ", href: "#faq" },
+                { label: "Contact Us", href: "#contact" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200 transition hover:bg-white hover:text-red-600"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="relative h-[260px] w-full overflow-hidden bg-slate-900 sm:h-[300px] md:h-[340px]">
